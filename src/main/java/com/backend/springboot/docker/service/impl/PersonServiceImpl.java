@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DateTimeException;
-import java.time.format.DateTimeParseException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -94,10 +92,10 @@ public class PersonServiceImpl implements PersonService {
      * @param startDate the start date
      * @param endDate   the end date
      * @return the person by entry date
-     * @throws ParseException the parse exception
+     *
      */
     @Override
-    public List<Person> getPersonByEntryDate(String startDate, String endDate) throws PersonException, ParseException {
+    public List<Person> getPersonByEntryDate(String startDate, String endDate) throws PersonException {
         try {
             Date sDate = convertIntoDate(startDate);
             Date eDate = convertIntoDate(endDate);
